@@ -1,0 +1,36 @@
+{
+  "customer_deposits": [
+    {
+      "customer_name": "Hermoine Granger",
+      "amount": 1000
+    },
+    {
+      "customer_name": "Harry Potter",
+      "amount": 500
+    }
+  ],
+  "customer_withdrawals": [
+    {
+      "customer_name": "Hermoine Granger",
+      "deposit_amount": 1000,
+      "withdraw_amount": 500
+    },
+    {
+      "customer_name": "Harry Potter",
+      "deposit_amount": 300,
+      "withdraw_amount": 100
+    }
+  ],
+  "manager_add_customers": [
+    {
+      "first_name": "RobotFirst",
+      "last_name": "RobotLast",
+      "post_code": "SW1A 1AA"
+    },
+    {
+      "first_name": "DataDriven",
+      "last_name": "User",
+      "post_code": "E1 6AN"
+    }
+  ]
+}
