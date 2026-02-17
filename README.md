@@ -39,29 +39,3 @@ Edit **config.py** at project root (no CLI params):
 | `BROWSER`  | `chromium` | `chromium`, `firefox`, `msedge`, `chrome`, `edge`. |
 | `BASE_URL` | (demo URL) | XYZ Bank app URL. |
 | `CUSTOMER_NAME` | Hermoine Granger | Default customer name. |
-
-- **robot/bank_suite.robot** – Data-driven suite: same test cases run with multiple data rows from JSON.
-- **robot/data/test_data.json** – Test data: `customer_deposits`, `customer_withdrawals`, `manager_add_customers`. Add or edit rows to run tests with different inputs.
-- **robot/resources/bank_resource.robot** – Resource: `${BASE_URL}`, `${BROWSER}`, and BankingLibrary import.
-- **libs/robot_bank_library.py** – Robot library: keywords + `Get * Test Data` (load from JSON), `Run * Test With Data` (one flow per row).
-
-## Data-driven tests
-
-Test data is in **robot/data/test_data.json**. Each test case uses a `FOR` loop over the data:
-
-- **Customer Deposit Success** – one run per `customer_deposits` row (customer_name, amount).
-- **Customer Withdrawal Success** – one run per `customer_withdrawals` row (customer_name, deposit_amount, withdraw_amount).
-- **Manager Add Customer Success** – one run per `manager_add_customers` row (first_name, last_name, post_code).
-
-To add or change data, edit the JSON file; no need to change the `.robot` files.
-
-## Structure
-
-- **libs/pom/** – Page objects: `base.py`, `login.py`, `home.py`, `manager.py`
-- **libs/browser_factory.py** – Browser factory (Chromium / Firefox / Edge)
-- **libs/robot_bank_library.py** – Robot library (keywords) wrapping POM + JSON test data
-- **config.py** – User config: `HEADLESS`, `BROWSER`, `BASE_URL`, `CUSTOMER_NAME` (edit only this file)
-- **robot/** – Robot: `bank_suite.robot`, `resources/bank_resource.robot`, `data/test_data.json`
-- **report/** – Robot output: `report.html`, `log.html`, `output.xml` (created when running with `--outputdir report`)
-
-The site uses the typo "Withdrawl" in the UI; selectors in `home.py` account for it.
